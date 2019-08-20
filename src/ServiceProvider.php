@@ -71,10 +71,10 @@ class ServiceProvider extends BaseServiceProvider
     
     private function publishHelpers()
     {
-        $configPath = $this->packagePath('src/Helpers/iris.php');
+        $configPath = $this->packagePath('src/Helpers/');
 
         $this->publishes([
-            $configPath => base_path('app/Helpers/iris.php'),
+            $configPath => base_path('app/'),
         ], 'app');
 
     }
