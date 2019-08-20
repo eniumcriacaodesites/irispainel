@@ -63,7 +63,7 @@
                         <div class="text-center">
 
                             <a class="small"
-                                href="{{route('login')}}">{{ trans('irispainel::adminlte.i_already_have_a_membership') }}</a>
+                                href="{{route('login')}}">{{ trans('irispainel::irispainel.i_already_have_a_membership') }}</a>
                         </div>
                     </div>
                 </div>
