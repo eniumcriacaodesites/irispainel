@@ -18,6 +18,8 @@ class ServiceProvider extends BaseServiceProvider
     ) {
         $this->loadViews();
 
+        $this->loadTranslations();
+
         $this->publishConfig();
 
         $this->publishAssets();
@@ -36,6 +38,17 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             $viewsPath => base_path('resources/views/vendor/irispainel'),
         ], 'views');
+    }
+
+    private function loadTranslations()
+    {
+        $translationsPath = $this->packagePath('resources/lang');
+
+        $this->loadTranslationsFrom($translationsPath, 'irispainel');
+
+        $this->publishes([
+            $translationsPath => base_path('resources/lang/vendor/irispainel'),
+        ], 'translations');
     }
 
     private function publishConfig()
