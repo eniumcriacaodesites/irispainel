@@ -3,14 +3,14 @@
 namespace Iris\EniumPainel\Http\ViewComposers;
 
 use Illuminate\View\View;
-use JeroenNoten\LaravelAdminLte\AdminLte;
+use Iris\EniumPainel\Irispainel;
 
 class IrisComposer
 {
     /**
      * @var AdminLte
      */
-    private $adminlte;
+    private $irispainel;
 
     public function __construct(
         Irispainel $irispainel

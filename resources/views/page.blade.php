@@ -1,4 +1,4 @@
-@extends('vendor.irispainel.master')
+@extends('irispainel::master')
 @section('master_css')
 @stack('css')
 @yield('css')
@@ -9,7 +9,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    @include('vendor.irispainel.partials.sidebar')
+    @include('irispainel::partials.sidebar')
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -17,7 +17,7 @@
         <!-- Main Content -->
         <div id="content">
 
-            @include('vendor.irispainel.partials.topbar-nav')
+            @include('irispainel::partials.topbar-nav')
 
             <!-- Begin Page Content -->
             <div class="container-fluid">

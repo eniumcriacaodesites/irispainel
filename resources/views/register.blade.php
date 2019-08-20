@@ -1,4 +1,4 @@
-@include('auth.partials.login.header')
+@include('irispainel::partials.login.header')
 <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -26,16 +26,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="email" name="email" class="form-control form-control-user"
-                                        id="exampleInputEmail" placeholder="{{ trans('irispainel::irispainel.email') }}"
-                                        value="{{ old('email') }}">
-                                    <div class="invalid-feedback"
-                                        style="{{ $errors->has('email') ? 'display: block' : '' }}">
-                                        {{ $errors->first('email') }}
-                                    </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control form-control-user"
+                                    id="exampleInputEmail" placeholder="{{ trans('irispainel::irispainel.email') }}"
+                                    value="{{ old('email') }}">
+                                <div class="invalid-feedback"
+                                    style="{{ $errors->has('email') ? 'display: block' : '' }}">
+                                    {{ $errors->first('email') }}
                                 </div>
+                            </div>
+                            <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" name="password" class="form-control form-control-user"
                                         id="exampleInputPassword"
@@ -45,10 +45,18 @@
                                         {{ $errors->first('password') }}
                                     </div>
                                 </div>
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" name="password_confirmation"
+                                        class="form-control form-control-user" id="exampleInputPassword"
+                                        placeholder="{{ trans('irispainel::irispainel.retype_password') }}">
+                                    <div class="invalid-feedback"
+                                        style="{{ $errors->has('password_confirmation') ? 'display: block' : '' }}">
+                                        {{ $errors->first('password_confirmation') }}
+                                    </div>
+                                </div>
                             </div>
-                            <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                {{ trans('irispainel::irispainel.register') }}
-                            </a>
+                            <button type="submit"
+                                class="btn btn-primary btn-user btn-block">{{ trans('adminlte::irispainel.register') }}</button>
                         </form>
                         <hr>
                         <div class="text-center">
@@ -62,4 +70,4 @@
     </div>
 
 </div>
-@include('auth.partials.login.footer')
+@include('irispainel::partials.login.footer')

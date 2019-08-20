@@ -12,7 +12,7 @@
     </title>
 
     <link rel="icon" href="{{asset('vendor/elisyam/assets/img/favicon.ico')}}">
-    @include('vendor.irispainel.partials.scripts.master_css')
+    @include('irispainel::partials.scripts.master_css')
     @yield('master_css')
 </head>
 
@@ -20,7 +20,7 @@
 
     @yield('body')
 
-    @include('vendor.irispainel.partials.scripts.master_js')
+    @include('irispainel::partials.scripts.master_js')
     @yield('master_js')
 </body>
 

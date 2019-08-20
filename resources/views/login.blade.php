@@ -1,4 +1,4 @@
-@include('auth.partials.login.header')
+@include('irispainel::partials.login.header')
 <div class="container">
 
     <!-- Outer Row -->
@@ -71,4 +71,4 @@
     </div>
 
 </div>
-@include('auth.partials.login.footer')
+@include('irispainel::partials.login.footer')
