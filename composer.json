@@ -1,0 +1,17 @@
+{
+    "name": "carlo/eniumpainel",
+    "description": "Modelo de Dashboard iris",
+    "license": "MIT",
+    "authors": [{
+        "name": "Carlos da Silva",
+        "email": "carlos@enium.com.br"
+    }],
+    "require": {
+        "php": ">=7.2.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iris\\EniumPainel\\": "src/"
+        }
+    }
+}
