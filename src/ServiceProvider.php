@@ -59,7 +59,7 @@ class ServiceProvider extends BaseServiceProvider
             $configPath => config_path('irispainel.php'),
         ], 'config');
 
-        $this->mergeConfigFrom($configPath, 'iris');
+        $this->mergeConfigFrom($configPath, 'irispainel');
     }
 
     private function publishAssets()
