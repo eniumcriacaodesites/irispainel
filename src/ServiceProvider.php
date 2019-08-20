@@ -10,6 +10,7 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Iris\EniumPainel\Console\IrisMakeCommand;
 use Iris\EniumPainel\Http\ViewComposers\IrisComposer;
 use Iris\EniumPainel\Helpers\Iris;
+
 class ServiceProvider extends BaseServiceProvider
 {
 
@@ -68,15 +69,14 @@ class ServiceProvider extends BaseServiceProvider
 
         $this->mergeConfigFrom($configPath, 'irispainel');
     }
-    
+
     private function publishHelpers()
     {
-        $configPath = $this->packagePath('src/Helpers/');
+        $configPath = $this->packagePath('src/Helpers');
 
         $this->publishes([
-            $configPath => base_path('app/'),
-        ], 'app');
-
+            $configPath => base_path('app/Helpers'),
+        ], 'helpers');
     }
 
     private function publishAssets()
