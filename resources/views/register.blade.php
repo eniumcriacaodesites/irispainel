@@ -55,11 +55,13 @@
                                     </div>
                                 </div>
                             </div>
+
                             <button type="submit"
                                 class="btn btn-primary btn-user btn-block">{{ trans('irispainel::irispainel.register') }}</button>
                         </form>
                         <hr>
                         <div class="text-center">
+
                             <a class="small"
                                 href="{{route('login')}}">{{ trans('irispainel::adminlte.i_already_have_a_membership') }}</a>
                         </div>

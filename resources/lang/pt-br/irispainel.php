@@ -19,5 +19,5 @@ return [
     'password_reset_message'      => 'Recuperar senha',
     'reset_password'              => 'Recuperar senha',
     'send_password_reset_link'    => 'Enviar link de recuperação de senha',
-    'create_an_account'    => 'Nova Conta',
+    'create_an_account'           => 'Nova Conta',
 ];

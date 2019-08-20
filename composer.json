@@ -1,6 +1,6 @@
 {
     "name": "iriss/eniumpainel",
-    "description": "Modelo de Dashboard iris",
+    "description": "Integração simples do painel [SB Admin 2](https://startbootstrap.com/themes/sb-admin-2/) com framework Laravel",
     "license": "MIT",
     "authors": [{
         "name": "Carlos da Silva",
@@ -20,5 +20,6 @@
                 "Iris\\EniumPainel\\ServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
