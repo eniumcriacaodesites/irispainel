@@ -14,13 +14,49 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('/painel')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
+        @foreach (Iris::menu() as $item)
+        {{-- <li class="{{Iris::menu_active([Request::segment(2)], $item['text'], 'collapse show')}}">
+          <a @if(isset($item['submenu'])) href="#dropdown-{{  str_slug($item['text']) }}" @else href="{{ $item['url'] }}" @endif aria-expanded="{{Iris::menu_active([Request::segment(2)], $item['text'], 'true')}}"  @if(isset($item['submenu'])) data-toggle="collapse" @endif>
+            <i class="{{$item['icon'] }}"></i><span>{{ $item['text'] }}</span>
+          </a>
+          @if(isset($item['submenu']))
+          <ul id="dropdown-{{ str_slug($item['text']) }}" class="collapse list-unstyled pt-0 {{Iris::menu_active([Request::segment(2)], $item['text'], 'show')}}">
+                @foreach ($item['submenu'] as $submenu)
+                  <li>
+                    <a class="{{Iris::menu_active(Request::segments(), $submenu['slug'], 'active')}}" href="{{ $submenu['url']}}">
+                        {{ $submenu['text'] }}
+                    </a>
+                  </li>
+                @endforeach
+              </ul>
+        @endif --}}
+
+          <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{  str_slug($item['text']) }}"
+            aria-expanded="true" aria-controls="{{  str_slug($item['text']) }}">
+            <i class="{{$item['icon'] }}"></i>
+            <span>{{ $item['text'] }}</span>
+        </a>
+        @if(isset($item['submenu']))
+            <div id="{{  str_slug($item['text']) }}" class="collapse" aria-labelledby="headingUtilities" data-parent="#{{  str_slug($item['text']) }}">
+                <div class="bg-white py-2 collapse-inner rounded">
+                
+                    @foreach ($item['submenu'] as $submenu)
+                        <a class="collapse-item" href="{{ $submenu['url']}}"> {{ $submenu['text'] }}</a>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+    </li>
+       @endforeach
+ 
     <!-- Divider -->
-    <hr class="sidebar-divider">
+    {{-- <hr class="sidebar-divider">
 
     <!-- Heading -->
     <div class="sidebar-heading">
@@ -102,7 +138,7 @@
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
