@@ -1,70 +1,75 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">{{config('app.name')}}</div>
-        </a>
-    
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-    
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{route('home')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
-            @foreach (menu() as $item)
-            {{-- <li class="{{Iris::menu_active([Request::segment(2)], $item['text'], 'collapse show')}}">
-              <a @if(isset($item['submenu'])) href="#dropdown-{{  str_slug($item['text']) }}" @else href="{{ $item['url'] }}" @endif aria-expanded="{{Iris::menu_active([Request::segment(2)], $item['text'], 'true')}}"  @if(isset($item['submenu'])) data-toggle="collapse" @endif>
-                <i class="{{$item['icon'] }}"></i><span>{{ $item['text'] }}</span>
-              </a>
-              @if(isset($item['submenu']))
-              <ul id="dropdown-{{ str_slug($item['text']) }}" class="collapse list-unstyled pt-0 {{Iris::menu_active([Request::segment(2)], $item['text'], 'show')}}">
-                    @foreach ($item['submenu'] as $submenu)
-                      <li>
-                        <a class="{{Iris::menu_active(Request::segments(), $submenu['slug'], 'active')}}" href="{{ $submenu['url']}}">
-                            {{ $submenu['text'] }}
-                        </a>
-                      </li>
-                    @endforeach
-                  </ul>
-            @endif --}}
-    
-    
-                @if(!isset($item['submenu']))
-                  <li class="nav-item">
-                  <a class="nav-link" href="{{route($item['url'])}}">
-                        <i class="fas {{$item['icon'] }}"></i>
-                        <span>{{ $item['text'] }}</span>
-                  </a>
-                </li>
-             @else
-             <li>
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{  str_slug($item['text']) }}"
-                aria-expanded="true" aria-controls="{{  str_slug($item['text']) }}">
-                <i class="{{$item['icon'] }}"></i>
-                <span>{{ $item['text'] }}</span>
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">{{config('app.name')}}</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('home')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+    @foreach (Iris::menu() as $item)
+    {{-- <li class="{{Iris::menu_active([Request::segment(2)], $item['text'], 'collapse show')}}">
+    <a @if(isset($item['submenu'])) href="#dropdown-{{  str_slug($item['text']) }}" @else href="{{ $item['url'] }}"
+        @endif aria-expanded="{{Iris::menu_active([Request::segment(2)], $item['text'], 'true')}}"
+        @if(isset($item['submenu'])) data-toggle="collapse" @endif>
+        <i class="{{$item['icon'] }}"></i><span>{{ $item['text'] }}</span>
+    </a>
+    @if(isset($item['submenu']))
+    <ul id="dropdown-{{ str_slug($item['text']) }}"
+        class="collapse list-unstyled pt-0 {{Iris::menu_active([Request::segment(2)], $item['text'], 'show')}}">
+        @foreach ($item['submenu'] as $submenu)
+        <li>
+            <a class="{{Iris::menu_active(Request::segments(), $submenu['slug'], 'active')}}"
+                href="{{ $submenu['url']}}">
+                {{ $submenu['text'] }}
             </a>
-                <div id="{{  str_slug($item['text']) }}" class="collapse" aria-labelledby="headingUtilities" data-parent="#{{  str_slug($item['text']) }}">
-                    <div class="bg-white py-2 collapse-inner rounded">
-    
-                        @foreach ($item['submenu'] as $submenu)
-                            <a class="collapse-item" href="{{ $submenu['url']}}"> {{ $submenu['text'] }}</a>
-                        @endforeach
-                    </div>
-                </div>
-            </li>
-            @endif
-    
-           @endforeach
-    
-        <!-- Divider -->
-        {{-- <hr class="sidebar-divider">
+        </li>
+        @endforeach
+    </ul>
+    @endif --}}
+
+
+    @if(!isset($item['submenu']))
+    <li class="nav-item">
+        <a class="nav-link" href="{{route($item['url'])}}">
+            <i class="fas {{$item['icon'] }}"></i>
+            <span>{{ $item['text'] }}</span>
+        </a>
+    </li>
+    @else
+    <li>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{  str_slug($item['text']) }}"
+            aria-expanded="true" aria-controls="{{  str_slug($item['text']) }}">
+            <i class="{{$item['icon'] }}"></i>
+            <span>{{ $item['text'] }}</span>
+        </a>
+        <div id="{{  str_slug($item['text']) }}" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#{{  str_slug($item['text']) }}">
+            <div class="bg-white py-2 collapse-inner rounded">
+
+                @foreach ($item['submenu'] as $submenu)
+                <a class="collapse-item" href="{{ $submenu['url']}}"> {{ $submenu['text'] }}</a>
+                @endforeach
+            </div>
+        </div>
+    </li>
+    @endif
+
+    @endforeach
+
+    <!-- Divider -->
+    {{-- <hr class="sidebar-divider">
     
         <!-- Heading -->
         <div class="sidebar-heading">
@@ -147,15 +152,14 @@
                 <i class="fas fa-fw fa-table"></i>
                 <span>Tables</span></a>
         </li> --}}
-    
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-    
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-    
-    </ul>
-    <!-- End of Sidebar -->
-    
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>
+<!-- End of Sidebar -->
